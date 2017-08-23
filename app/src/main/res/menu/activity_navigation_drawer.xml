@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_request"
+            android:icon="@drawable/chat"
+            android:title="Request" />
+
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/bell"
+            android:title="Notification" />
+
+        <item
+            android:id="@+id/nav_blood_history"
+            android:icon="@drawable/two_blood_drops"
+            android:title="Blood History" />
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/userss"
+            android:title="My Profile" />
+
+        <item
+            android:id="@+id/nav_memories"
+            android:icon="@drawable/gallery"
+            android:title="Memories" />
+
+    </group>
+
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/share"
+            android:title="Share" />
+
+
+        <item
+            android:id="@+id/nav_rate_us"
+            android:icon="@drawable/rate_us"
+            android:title="Rate Us" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/settings"
+            android:title="Settings" />
+
+
+    </group>
+
+
+</menu>

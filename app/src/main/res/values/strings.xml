@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">DNA</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+    <string name="text_members_empty_screen">Add your Family Members here. A one more step, towards kindness.</string>
+</resources>

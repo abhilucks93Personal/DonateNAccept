@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_custom_rating"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="@dimen/_2sdp">
+
+    <ImageView
+        android:id="@+id/iv_star1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/_2sdp"
+        android:src="@drawable/star_01" />
+
+    <ImageView
+        android:id="@+id/iv_star2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/_2sdp"
+        android:src="@drawable/star_2" />
+
+    <ImageView
+        android:id="@+id/iv_star3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/_2sdp"
+        android:src="@drawable/star_3" />
+
+    <ImageView
+        android:id="@+id/iv_star4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/_2sdp"
+        android:src="@drawable/star_4" />
+
+    <ImageView
+        android:id="@+id/iv_star5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/star_5" />
+
+</LinearLayout>

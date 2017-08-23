@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_no_member"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="No Member\nAdded!"
+            android:textColor="@color/colorGrey"
+            android:textSize="@dimen/_24sdp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:gravity="center"
+            android:padding="@dimen/_12sdp"
+            android:text="@string/text_members_empty_screen" />
+
+        <TextView
+            android:id="@+id/tv_add_members"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_bg_add_member"
+            android:padding="@dimen/_8sdp"
+            android:text="     Add Member     "
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14sdp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_members"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_members"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tv_add_member2"
+            android:layout_gravity="center"
+            android:background="@color/colorLightGrey"
+            android:divider="@null"
+            android:orientation="vertical"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+
+        <TextView
+            android:id="@+id/tv_add_member2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorGreen"
+            android:gravity="center"
+            android:padding="@dimen/_14sdp"
+            android:text="Add Member"
+            android:textColor="@color/colorWhite" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

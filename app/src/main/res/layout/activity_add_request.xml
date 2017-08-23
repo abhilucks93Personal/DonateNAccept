@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/custom_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_8sdp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_4sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:text="Name"
+            android:textColor="@color/colorBlack" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_bg_et3"
+            android:padding="@dimen/_12sdp"
+            android:text="Paul Appleseed"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_4sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:text="Blood Group"
+            android:textColor="@color/colorBlack" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_bg_et3"
+            android:padding="@dimen/_12sdp"
+            android:text="A-"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_4sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:text="Requirement"
+            android:textColor="@color/colorBlack" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_bg_et3"
+            android:padding="@dimen/_12sdp"
+            android:text="Urgent"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_4sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:text="Location"
+            android:textColor="@color/colorBlack" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_bg_et3"
+            android:padding="@dimen/_12sdp"
+            android:text="C-56/4 , Fortis Hospital, Sector 62, Noida"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/tv_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:background="@drawable/layout_bg_add_member"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="Add"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_14sdp" />
+
+    </LinearLayout>
+
+</LinearLayout>
