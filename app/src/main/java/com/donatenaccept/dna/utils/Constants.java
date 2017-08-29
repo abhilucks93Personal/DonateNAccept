@@ -5,5 +5,6 @@ package com.donatenaccept.dna.utils;
  */
 
 public class Constants {
-    public static String keyLoginCheck="keyLoginCheck";
+    public static String keyLoginCheck = "keyLoginCheck";
+    public static String codeSuccess = "200";
 }

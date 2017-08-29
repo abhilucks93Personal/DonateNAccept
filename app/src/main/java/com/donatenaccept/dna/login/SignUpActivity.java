@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import com.donatenaccept.dna.R;
 import com.donatenaccept.dna.parent.BaseActivity;
+import com.donatenaccept.dna.retrofit.ModelResponseMain;
+import com.donatenaccept.dna.retrofit.RetrofitApi;
+import com.donatenaccept.dna.utils.Constants;
 import com.donatenaccept.dna.utils.Utility;
 
 
@@ -17,12 +20,13 @@ import com.donatenaccept.dna.utils.Utility;
  * Created by abhi on 17/04/17.
  */
 
-public class SignUpActivity extends BaseActivity implements View.OnClickListener {
+public class SignUpActivity extends BaseActivity implements View.OnClickListener, RetrofitApi.ResponseListener {
 
 
     ImageView ivBack;
     TextView tvSignup, tvBloodGroup;
     EditText etName, etPhone, etEmail, etPassword, etConfirmPassword, etAge, etAddress;
+    ModelRegistration modelRegistration;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,8 +70,53 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
 
             case R.id.signup_tv_create:
 
-                startActivity(new Intent(SignUpActivity.this, OTPActivity.class));
+                //startActivity(new Intent(SignUpActivity.this, OTPActivity.class));
+
+                fetchData();
+
+                RetrofitApi.getInstance().signUpApi(SignUpActivity.this, this, modelRegistration);
+
                 break;
         }
+    }
+
+    private void fetchData() {
+        modelRegistration = new ModelRegistration();
+
+        modelRegistration.setFull_name(etName.getText().toString().trim());
+        modelRegistration.setDevice_token("ecbcd7eaee29848978134beeecdfbc7c");
+        modelRegistration.setDevice_type("1");
+        modelRegistration.setPassword(etPassword.getText().toString().trim());
+        modelRegistration.setRegistration_type("1");
+        modelRegistration.setUser_age(etAge.getText().toString().trim());
+        modelRegistration.setUser_blood_group_id("1");
+        modelRegistration.setUser_email(etEmail.getText().toString().trim());
+        modelRegistration.setUser_lat("0.0");
+        modelRegistration.setUser_long("0.0");
+        modelRegistration.setUser_mobile(etPhone.getText().toString().trim());
+
+
+    }
+
+    @Override
+    public void _onNext(Object obj) {
+        ModelResponseMain responseMain = (ModelResponseMain) obj;
+        if (responseMain.getCode().equals(Constants.codeSuccess)) {
+            Utility.showToast(SignUpActivity.this, "yureka");
+            ModelRegistration registrationData = (ModelRegistration) responseMain.getData();
+        } else {
+            Utility.showToast(SignUpActivity.this, responseMain.getMessage());
+        }
+
+    }
+
+    @Override
+    public void _onCompleted() {
+
+    }
+
+    @Override
+    public void _onError(Throwable e) {
+
     }
 }
