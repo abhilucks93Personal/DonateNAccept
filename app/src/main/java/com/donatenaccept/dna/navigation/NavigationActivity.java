@@ -31,7 +31,10 @@ import com.donatenaccept.dna._notifications.NotificationFragment;
 import com.donatenaccept.dna._profile.ProfileFragment;
 import com.donatenaccept.dna._request.RequestFragment;
 import com.donatenaccept.dna._setting.view.SettingsFragment;
+import com.donatenaccept.dna.citiesAutoComplete.activities.LocationActivity;
+import com.donatenaccept.dna.login.ModelRegistration;
 import com.donatenaccept.dna.sample.BlankFragment;
+import com.donatenaccept.dna.utils.Constants;
 import com.donatenaccept.dna.utils.Utility;
 
 
@@ -56,9 +59,10 @@ public class NavigationActivity extends AppCompatActivity implements View.OnClic
     private static final String TAG_SETTINGS = "TAG_SETTINGS";
     public static String CURRENT_TAG = TAG_MY_PROFILE;
 
-    TextView tvTitle, tvAction;
+    TextView tvName, tvBloodGroup, tvTitle, tvAction, tvLocationName;
     ImageView ivAction;
     LinearLayout llLocation, llProfileBank;
+    private String locationName;
 
 
     @Override
@@ -96,6 +100,12 @@ public class NavigationActivity extends AppCompatActivity implements View.OnClic
     private void findViewById() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         tvTitle = (TextView) toolbar.findViewById(R.id.tv_nav_title);
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+
+        tvLocationName = (TextView) toolbar.findViewById(R.id.tv_location_name);
+        tvLocationName.setOnClickListener(this);
         tvAction = (TextView) toolbar.findViewById(R.id.tv_action);
         tvAction.setOnClickListener(this);
         ivAction = (ImageView) toolbar.findViewById(R.id.iv_action);
@@ -103,11 +113,19 @@ public class NavigationActivity extends AppCompatActivity implements View.OnClic
         llLocation = (LinearLayout) toolbar.findViewById(R.id.ll_location);
         llProfileBank = (LinearLayout) toolbar.findViewById(R.id.ll_profile_bank);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
     }
 
     public void loadNavHeader() {
 
+
+        tvName = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tv_nav_header_name);
+        tvBloodGroup = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tv_nav_header_blood_group);
+
+        ModelRegistration data = Utility.getProfileData(this, Constants.keyProfileData);
+        if (data != null) {
+             tvName.setText(data.getFull_name());
+             tvBloodGroup.setText(data.getUser_blood_group());
+        }
 
     }
 
@@ -117,7 +135,7 @@ public class NavigationActivity extends AppCompatActivity implements View.OnClic
         Runnable mPendingRunnable = new Runnable() {
             @Override
             public void run() {
-                // update the main content by replacing fragments
+                // update the crop_menu content by replacing fragments
                 Fragment fragment = getHomeFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.setCustomAnimations(android.R.anim.fade_in,
@@ -250,7 +268,7 @@ public class NavigationActivity extends AppCompatActivity implements View.OnClic
 
                 //Check to see which item was being clicked and perform appropriate action
                 switch (menuItem.getItemId()) {
-                    //Replacing the main content with ContentFragment Which is our Inbox View;
+                    //Replacing the crop_menu content with ContentFragment Which is our Inbox View;
                     case R.id.nav_home:
                         navItemIndex = 0;
                         CURRENT_TAG = TAG_HOME;
@@ -424,7 +442,15 @@ public class NavigationActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.iv_action:
-                Utility.showToast(NavigationActivity.this, "Action Profile");
+               // Utility.showToast(NavigationActivity.this, "Action Profile");
+                if (fragment != null && fragment instanceof ProfileFragment)
+                    ((ProfileFragment) fragment).editProfile();
+
+
+                break;
+
+            case R.id.tv_location_name:
+                startActivityForResult(new Intent(NavigationActivity.this, LocationActivity.class), 101);
                 break;
         }
 
@@ -433,5 +459,15 @@ public class NavigationActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+
+            case 101:
+                if (data != null) {
+                    locationName = data.getStringExtra("locationName");
+                    tvLocationName.setText(locationName);
+                }
+                break;
+        }
     }
 }

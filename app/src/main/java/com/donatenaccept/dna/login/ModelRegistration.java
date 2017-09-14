@@ -15,6 +15,7 @@ public class ModelRegistration extends BaseModel {
     private String password;
     private String user_age;
     private String user_blood_group_id;
+    private String user_blood_group;
     private String user_lat;
     private String user_long;
     private String device_type;
@@ -74,6 +75,16 @@ public class ModelRegistration extends BaseModel {
 
     public void setUser_blood_group_id(String user_blood_group_id) {
         this.user_blood_group_id = user_blood_group_id;
+    }
+
+    public String getUser_blood_group() {
+        if (user_blood_group == null)
+            user_blood_group = "";
+        return user_blood_group;
+    }
+
+    public void setUser_blood_group(String user_blood_group) {
+        this.user_blood_group = user_blood_group;
     }
 
     public String getUser_lat() {

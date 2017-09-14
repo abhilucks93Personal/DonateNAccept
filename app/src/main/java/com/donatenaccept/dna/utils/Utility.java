@@ -43,6 +43,8 @@ import android.widget.Toast;
 
 
 import com.donatenaccept.dna.R;
+import com.donatenaccept.dna.login.ModelRegistration;
+import com.google.gson.Gson;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -60,6 +62,8 @@ import java.util.Random;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import id.zelory.compressor.Compressor;
 
 import static android.content.ContentValues.TAG;
 
@@ -137,6 +141,25 @@ public class Utility {
 
         return Uri.parse(path);
     }*/
+
+    public static Uri saveBitmapToDisk(Context context, Bitmap bmp) {
+        Uri finalUri = null;
+        File file = new File(context.getFilesDir(), "Image" + new Random().nextInt() + ".png");
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 80, bytes);
+        try {
+            file.createNewFile();
+            FileOutputStream fo = new FileOutputStream(file);
+            fo.write(bytes.toByteArray());
+            fo.close();
+            File file1 = Compressor.getDefault(context).compressToFile(file);
+            return Uri.fromFile(file1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return finalUri;
+    }
+
 
     public static String getRealPathFromUri(Context mContext, Uri mUri) {
         String[] proj = {MediaStore.Images.Media.DATA};
@@ -272,6 +295,7 @@ public class Utility {
         return false;
     }*/
 
+
     public static String formatDateFromString(String inputFormat, String outputFormat, String inputDate) {
 
         Date parsed = null;
@@ -300,6 +324,10 @@ public class Utility {
         }
     }
 
+    public static boolean isValidMobileNo(String userName) {
+        return true;
+    }
+
     public static void showDevelopmentToast(Context context) {
         Toast.makeText(context, "Under Development", Toast.LENGTH_SHORT).show();
     }
@@ -316,6 +344,29 @@ public class Utility {
         SharedPreferences.Editor editor = context.getSharedPreferences("Preferences_", Context.MODE_PRIVATE).edit();
         editor.putBoolean(key, value);
         editor.commit();
+    }
+
+    /*__________________Saving Profile Data After Login Or SignUp Or Edit Profile__________________*/
+
+    public static void addPreferences(Context context, String key, ModelRegistration signUpResponseData) {
+        SharedPreferences.Editor editor = context.getSharedPreferences("Preferences_", Context.MODE_PRIVATE).edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(signUpResponseData);
+        editor.putString(key, json);
+        editor.commit();
+    }
+
+    /*__________________Fetching Profile Data Saved After Login Or SignUp Or Edit Profile__________________*/
+
+    public static ModelRegistration getProfileData(Context context, String key) {
+        SharedPreferences prefs = context.getSharedPreferences("Preferences_", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+
+        String json = prefs.getString(key, "");
+        ModelRegistration signUpResponseData = gson.fromJson(json, ModelRegistration.class);
+
+        return signUpResponseData;
+
     }
 
 
@@ -829,7 +880,6 @@ public class Utility {
     }
 
 
-
     public static void OpenPlayStore(Activity activity) {
         final String appPackageName = activity.getPackageName(); // getPackageName() from Context or Activity object
         try {
@@ -844,6 +894,8 @@ public class Utility {
         return "https://play.google.com/store/apps/details?id=" + appPackageName;
 
     }
+
+
 
 
 

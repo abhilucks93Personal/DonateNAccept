@@ -1,18 +1,19 @@
-package com.donatenaccept.dna.retrofit;
+package com.donatenaccept.dna._memories;
 
-import com.donatenaccept.dna.login.ModelRegistration;
+import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
- * Created by abhi on 29/08/17.
+ * Created by abhi on 01/08/17.
  */
 
-public class ModelResponseMain extends BaseModel {
+public class ResponseModelAddMemory implements Serializable {
 
     private String code;
 
     private String message;
 
-    private ModelRegistration data;
+    private ResponseModelMemoriesData data;
 
     public String getCode() {
         return code;
@@ -30,11 +31,13 @@ public class ModelResponseMain extends BaseModel {
         this.message = message;
     }
 
-    public ModelRegistration getData() {
+    public ResponseModelMemoriesData getData() {
         return data;
     }
 
-    public void setData(ModelRegistration data) {
+    public void setData(ResponseModelMemoriesData data) {
         this.data = data;
     }
+
+
 }

@@ -18,8 +18,6 @@ public class BloodHistoryAdapter extends RecyclerView.Adapter<BloodHistoryAdapte
     private int mLayoutResourceId;
 
 
-   
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvRequest;
 
@@ -71,8 +69,8 @@ public class BloodHistoryAdapter extends RecyclerView.Adapter<BloodHistoryAdapte
 
     @Override
     public int getItemCount() {
-        // return bloodHistoryDataList.size();
-        return 2;
+        return bloodHistoryDataList.size();
+        // return 2;
     }
 
 

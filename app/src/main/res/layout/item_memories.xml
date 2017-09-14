@@ -21,6 +21,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/iv_image"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
                 android:background="@color/colorGrey25" />
@@ -32,12 +33,12 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_6sdp"
                     android:layout_marginTop="@dimen/_6sdp"
                     android:padding="@dimen/_4sdp"
-                    android:text="Amazing experience. I know the true value of blood."
                     android:textColor="@color/colorBlack" />
 
                 <View

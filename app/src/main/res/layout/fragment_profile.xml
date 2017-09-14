@@ -47,12 +47,12 @@
                 android:paddingTop="@dimen/_30sdp">
 
                 <TextView
+                    android:id="@+id/tv_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:gravity="center"
-                    android:text="John Appleseeds"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
@@ -101,10 +101,9 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/tv_blood_group"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="B+"
-                            android:textColor="@color/colorRed"
                             android:textSize="@dimen/_14sdp"
                             android:textStyle="bold" />
 

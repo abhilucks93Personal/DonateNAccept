@@ -19,6 +19,7 @@ public class AddRequestActivity extends Activity implements View.OnClickListener
 
     ImageView iconLeft;
     TextView tv_title;
+    ModelAddRequest modelAddRequest;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,9 +60,15 @@ public class AddRequestActivity extends Activity implements View.OnClickListener
                 break;
 
             case R.id.tv_add:
-                setResult(RESULT_OK);
-                finish();
+                fetchData();
                 break;
         }
+    }
+
+    private void fetchData() {
+
+        modelAddRequest = new ModelAddRequest();
+
+
     }
 }

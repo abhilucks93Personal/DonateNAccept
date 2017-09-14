@@ -21,6 +21,7 @@
             android:textColor="@color/colorBlack" />
 
         <EditText
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/layout_bg_et3"
@@ -38,6 +39,7 @@
             android:textColor="@color/colorBlack" />
 
         <EditText
+            android:id="@+id/et_blood_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/layout_bg_et3"

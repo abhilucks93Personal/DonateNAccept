@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "310785001727",
+    "firebase_url": "https://nifty-edge-179307.firebaseio.com",
+    "project_id": "nifty-edge-179307",
+    "storage_bucket": "nifty-edge-179307.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310785001727:android:d1cfcf13d2a3d9c5",
+        "android_client_info": {
+          "package_name": "com.donatenaccept.dna"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "310785001727-jr02jp2t4ql1nfo2bigldf5vhd7sj62l.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "310785001727-41pleb32di1ha5e0h21njjacdofoa6d1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.donatenaccept.dna",
+            "certificate_hash": "f4389a10be7413501a1586f2234ba4b8b4d6c3e2"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSGTJS9QDYlVB-TXUKqok8IR9P0qOaH3E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "310785001727-jr02jp2t4ql1nfo2bigldf5vhd7sj62l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

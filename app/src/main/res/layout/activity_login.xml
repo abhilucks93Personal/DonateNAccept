@@ -42,10 +42,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_12sdp"
-            android:text="PHONE NO"
+            android:text="Email / PHONE NO"
             android:textColor="@color/colorWhite50" />
 
         <EditText
+            android:id="@+id/et_user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_10sdp"
@@ -64,6 +65,7 @@
             android:textColor="@color/colorWhite50" />
 
         <EditText
+            android:id="@+id/et_user_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_10sdp"
@@ -80,9 +82,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:padding="@dimen/_4sdp"
-            android:textSize="@dimen/_10sdp"
             android:text="Forgot Password?"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_10sdp" />
 
         <TextView
             android:id="@+id/login_tv_signin"
@@ -140,18 +142,18 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_12sdp"
                 android:layout_weight="1"
-                android:src="@drawable/facebook"
                 android:background="@drawable/layout_bg_facebook"
-                android:padding="@dimen/_6sdp" />
+                android:padding="@dimen/_6sdp"
+                android:src="@drawable/facebook" />
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_12sdp"
                 android:layout_weight="1"
-                android:src="@drawable/google"
                 android:background="@drawable/layout_bg_google"
-                android:padding="@dimen/_6sdp" />
+                android:padding="@dimen/_6sdp"
+                android:src="@drawable/google" />
 
         </LinearLayout>
 
@@ -165,16 +167,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Don't have an account"
-                android:textSize="@dimen/_10sdp"
-                android:textColor="@color/colorWhite50" />
+                android:textColor="@color/colorWhite50"
+                android:textSize="@dimen/_10sdp" />
 
             <TextView
                 android:id="@+id/login_tv_signup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Signup "
-                android:textSize="@dimen/_10sdp"
-                android:textColor="@color/colorWhite" />
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_10sdp" />
 
         </LinearLayout>
 

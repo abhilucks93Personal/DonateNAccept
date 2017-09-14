@@ -3,6 +3,7 @@ package com.donatenaccept.dna._notifications;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -10,9 +11,11 @@ import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.donatenaccept.dna.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -26,6 +29,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvText;
+        ImageView ivImage;
 
         View convertView;
 
@@ -35,10 +39,10 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             convertView = view;
 
             tvText = (TextView) view.findViewById(R.id.tv_text);
+            ivImage = (ImageView) view.findViewById(R.id.iv_profile);
 
         }
     }
-
 
     public NotificationAdapter(Activity context, int mLayoutResourceId, List<ResponseModelNotificationData> notificationDataList) {
         this.notificationDataList = notificationDataList;
@@ -58,36 +62,16 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        // final ResponseModelNotificationData notificationData = notificationDataList.get(position);
+        final ResponseModelNotificationData notificationData = notificationDataList.get(position);
 
-
-        //holder.tvName.setText(notificationData.getSub_service_name());
-
-
-        SpannableString styledString
-                = new SpannableString("John Appleseeds requires Blood (B-). Its time to save a life.");   // index 103 - 112
-
-        // make text bold
-        styledString.setSpan(new StyleSpan(Typeface.BOLD), 0, 15, 0);
-
-        styledString.setSpan(new ForegroundColorSpan(Color.BLACK), 0, 15, 0);
-
-        holder.tvText.setText(styledString);
-
-
-        holder.convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // holder.tvRequest.setText("Request\nAccepted");
-            }
-        });
-
+        holder.tvText.setText(notificationData.getDescription());
+        Picasso.with(context).load(notificationData.getImage_url()).into(holder.ivImage);
     }
 
     @Override
     public int getItemCount() {
-        // return notificationDataList.size();
-        return 1;
+        return notificationDataList.size();
+        //return 1;
     }
 
 

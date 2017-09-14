@@ -8,9 +8,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.donatenaccept.dna.MainActivity;
 import com.donatenaccept.dna.R;
+import com.donatenaccept.dna.navigation.NavigationActivity;
 import com.donatenaccept.dna.parent.BaseActivity;
-import com.donatenaccept.dna.retrofit.ModelResponseMain;
 import com.donatenaccept.dna.retrofit.RetrofitApi;
 import com.donatenaccept.dna.utils.Constants;
 import com.donatenaccept.dna.utils.Utility;
@@ -74,8 +75,6 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
 
                 fetchData();
 
-                RetrofitApi.getInstance().signUpApi(SignUpActivity.this, this, modelRegistration);
-
                 break;
         }
     }
@@ -84,10 +83,10 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
         modelRegistration = new ModelRegistration();
 
         modelRegistration.setFull_name(etName.getText().toString().trim());
-        modelRegistration.setDevice_token("ecbcd7eaee29848978134beeecdfbc7c");
-        modelRegistration.setDevice_type("1");
+        modelRegistration.setDevice_token("abcdefghijklmnop");
+        modelRegistration.setDevice_type(Constants.deviceType);
         modelRegistration.setPassword(etPassword.getText().toString().trim());
-        modelRegistration.setRegistration_type("1");
+        modelRegistration.setRegistration_type(Constants.registrationTypeNormal);
         modelRegistration.setUser_age(etAge.getText().toString().trim());
         modelRegistration.setUser_blood_group_id("1");
         modelRegistration.setUser_email(etEmail.getText().toString().trim());
@@ -95,15 +94,19 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
         modelRegistration.setUser_long("0.0");
         modelRegistration.setUser_mobile(etPhone.getText().toString().trim());
 
-
+        RetrofitApi.getInstance().signUpApi(SignUpActivity.this, this, modelRegistration);
     }
 
     @Override
     public void _onNext(Object obj) {
-        ModelResponseMain responseMain = (ModelResponseMain) obj;
+        ModelRegistrationMain responseMain = (ModelRegistrationMain) obj;
         if (responseMain.getCode().equals(Constants.codeSuccess)) {
             Utility.showToast(SignUpActivity.this, "yureka");
-            ModelRegistration registrationData = (ModelRegistration) responseMain.getData();
+            ModelRegistration registrationData = responseMain.getData();
+            Utility.addPreferences(SignUpActivity.this, Constants.keyProfileData, registrationData);
+            Utility.addPreferences(SignUpActivity.this, Constants.keyLoginCheck, true);
+            startActivity(new Intent(SignUpActivity.this, NavigationActivity.class));
+            finishAffinity();
         } else {
             Utility.showToast(SignUpActivity.this, responseMain.getMessage());
         }

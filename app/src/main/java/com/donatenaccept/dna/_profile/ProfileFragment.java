@@ -9,8 +9,14 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.donatenaccept.dna.R;
+import com.donatenaccept.dna.login.ModelRegistration;
+import com.donatenaccept.dna.utils.Constants;
+import com.donatenaccept.dna.utils.Utility;
+
+import java.text.BreakIterator;
 
 
 /**
@@ -20,6 +26,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     TabLayout tabLayout;
     ViewPager viewPager;
     ProfilePagerAdapter adapter;
+    TextView tvName, tvBloodGroup;
 
     @Nullable
     @Override
@@ -34,6 +41,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
     private void findViewById(View view) {
+
+        tvName = (TextView) view.findViewById(R.id.tv_name);
+        tvBloodGroup = (TextView) view.findViewById(R.id.tv_blood_group);
+
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
         viewPager = (ViewPager) view.findViewById(R.id.pager);
     }
@@ -46,7 +57,16 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+
     private void initUi() {
+
+        ModelRegistration data = Utility.getProfileData(getActivity(), Constants.keyProfileData);
+        if (data != null) {
+            tvName.setText(data.getFull_name());
+            tvBloodGroup.setText(data.getUser_blood_group());
+        }
+
+
         //Adding the tabs using addTab() method
         tabLayout.addTab(tabLayout.newTab().setText("More About Me"));
         tabLayout.addTab(tabLayout.newTab().setText("Members"));
@@ -83,5 +103,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public void editProfile() {
+        startActivity(new Intent(getActivity(),EditProfileActivity.class));
     }
 }

@@ -6,10 +6,21 @@
     android:background="@color/colorLightGrey"
     android:orientation="vertical">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginRight="@dimen/_12sdp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/colorPrimary" />
+
     <TextView
         android:id="@+id/tv_no_memories"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/progressBar"
         android:gravity="center"
         android:text="No Memories\nYet!"
         android:textSize="@dimen/_24sdp"
@@ -19,6 +30,7 @@
         android:id="@+id/rv_memories"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/progressBar"
         android:layout_gravity="center"
         android:background="@color/colorLightGrey"
         android:divider="@null"

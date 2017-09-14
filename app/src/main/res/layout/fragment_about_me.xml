@@ -11,6 +11,7 @@
         android:padding="@dimen/_8sdp">
 
         <TextView
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.35"
@@ -18,13 +19,13 @@
             android:text="EMAIL" />
 
         <TextView
+            android:id="@+id/tv_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
             android:gravity="end"
             android:padding="@dimen/_4sdp"
             android:singleLine="true"
-            android:text="john_appleseeds@gmail.com"
             android:textColor="@color/colorBlack" />
 
     </LinearLayout>
@@ -48,13 +49,13 @@
             android:text="MOBILE NO." />
 
         <TextView
+            android:id="@+id/tv_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
             android:gravity="end"
             android:padding="@dimen/_4sdp"
             android:singleLine="true"
-            android:text="+91 9876543210"
             android:textColor="@color/colorBlack" />
 
     </LinearLayout>
@@ -78,13 +79,13 @@
             android:text="AGE" />
 
         <TextView
+            android:id="@+id/tv_age"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
             android:gravity="end"
             android:padding="@dimen/_4sdp"
             android:singleLine="true"
-            android:text="26"
             android:textColor="@color/colorBlack" />
 
     </LinearLayout>
@@ -108,12 +109,12 @@
             android:text="ADDRESS" />
 
         <TextView
+            android:id="@+id/tv_address"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
             android:gravity="end"
             android:padding="@dimen/_4sdp"
-            android:text="C-56/4 Meadson Park, Sector 62, Noida (Uttar Pradesh)"
             android:textColor="@color/colorBlack" />
 
     </LinearLayout>
